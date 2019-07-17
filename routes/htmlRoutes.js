@@ -24,30 +24,24 @@ module.exports = function(app) {
   // });
 
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("home", {
-        msg: "Welcome home!",
-        examples: dbExamples
-      });
+    res.render("home", {
+      msg: "Welcome home!"
+      // examples: dbExamples
     });
   });
 
   // Load example page and pass in an example by id
   app.get("/history", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("transaction", {
-        msg: "Transaction history!",
-        example: dbExample
-      });
+    res.render("transaction", {
+      msg: "Transaction history!"
+      // examples: dbExamples
     });
   });
 
   app.get("/new", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("input", {
-        msg: "Input a transaction here",
-        example: dbExample
-      });
+    res.render("input", {
+      msg: "Input new transaction!"
+      // examples: dbExamples
     });
   });
 
