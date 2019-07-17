@@ -2,7 +2,6 @@ var db = require("../models");
 // var path = require("path");
 
 module.exports = function(app) {
-
   // Load index page
 
   // home route
@@ -32,14 +31,14 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/history", function(req, res) {
+  app.get("/transaction", function(req, res) {
     res.render("transaction", {
       msg: "Transaction history!"
       // examples: dbExamples
     });
   });
 
-  app.get("/new", function(req, res) {
+  app.get("/input", function(req, res) {
     res.render("input", {
       msg: "Input new transaction!"
       // examples: dbExamples
