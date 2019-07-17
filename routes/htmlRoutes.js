@@ -2,6 +2,7 @@ var db = require("../models");
 var path = require("path");
 
 module.exports = function(app) {
+
   // Load index page
 
   // home route
@@ -43,3 +44,4 @@ module.exports = function(app) {
 
   // Render 404 page for any unmatched routes
 };
+
