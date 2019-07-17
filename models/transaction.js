@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Transaction.associate = function(models) {
-    Transaction.belongsto(models.User, {
+    Transaction.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
