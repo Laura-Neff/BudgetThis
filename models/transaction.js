@@ -1,16 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-  var Transactions = sequelize.define("Transaction", {
+  var Transaction = sequelize.define("Transaction", {
     type: DataTypes.STRING,
     memo: DataTypes.TEXT,
     amount: DataTypes.REAL
   });
 
-  Transactions.associate = function(models) {
-    Transactions.belongsto(models.User, {
+  Transaction.associate = function(models) {
+    Transaction.belongsto(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Transactions;
+  return Transaction;
 };
