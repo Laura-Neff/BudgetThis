@@ -47,7 +47,6 @@ module.exports = function(app) {
         });
     });
 
-<<<<<<< HEAD
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
@@ -70,10 +69,9 @@ axios
       console.log(error.response);
     }
   });
-=======
+
     // // Render 404 page for any unmatched routes
     // app.get("*", function(req, res) {
     //     res.render("404");
     // });
 };
->>>>>>> ae475233b5e80cdfda8ce8b7b55c9800e871e1af
