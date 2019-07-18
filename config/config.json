@@ -1,31 +1,30 @@
 {
 
-  "development": {
-    "username": "root",
-    "password": null, 
-    "database": "budgetdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "main": "transactionAPI.test.js"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.0.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
+    "development": {
+        "username": "root",
+        "password": "Baozakeruga1",
+        "database": "budgetdb",
+        "host": "localhost",
+        "dialect": "mysql",
+        "main": "transactionAPI.test.js"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.0.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "testdb",
+        "host": "localhost",
+        "dialect": "mysql",
+        "logging": false
+    },
+    "production": {
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
+    }
 }
-
