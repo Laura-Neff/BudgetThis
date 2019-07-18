@@ -24,7 +24,29 @@
             <label for="memo">Description:</label>
             <input type="text" class="form-control" id="memo" placeholder="Transaction Memo">
         </div>
-          <button type="submit" class="btn btn-success" id="transaction">Create Transaction</button>
+          <button type="submit" class="btn btn-success" id="transaction-form">Create Transaction</button>
     </form>
 
-    <script src="js/input.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+
+    $(document).on("click", "#transaction-form", transactionFormSubmit);
+
+    // A function to handle what happens when the form is submitted to create a new Author
+    function transactionFormSubmit(event) {
+        event.preventDefault();
+
+        var transaction = {
+            type: $("#type :selected").val(),
+            memo: $("#memo").val(),
+            amount: parseFloat($("#amount").val()),
+            user:$("#user").val()
+        }
+        console.log(transaction);
+        $.post("/api/transactions", transaction)
+            .then(function() {
+                console.log("Added transaction")
+            });
+    }
+});
+</script>

@@ -1,8 +1,9 @@
 {
+
   "development": {
     "username": "root",
     "password": null, 
-    "database": "exampledb",
+    "database": "budgetdb",
     "host": "localhost",
     "dialect": "mysql",
     "main": "transactionAPI.test.js"
@@ -27,3 +28,4 @@
     "dialect": "mysql"
   }
 }
+
