@@ -1,10 +1,19 @@
 {
+
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": null, 
+    "database": "budgetdb",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "main": "transactionAPI.test.js"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "test": {
     "username": "root",
@@ -19,3 +28,4 @@
     "dialect": "mysql"
   }
 }
+
