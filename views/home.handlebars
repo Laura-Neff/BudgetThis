@@ -4,27 +4,3 @@
         <a href="/input">Input Your Financial Data</a>
 </nav>
 
-<div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-            $(document).ready(function() {
-    var iexBase = "https://cloud.iexapis.com/";
-    var APIKey = "pk_89ef22186bae4d2ab7ab947f689b814f";
-
-   
-    var queryURL = iexBase + APIKey;
-
-  $.ajax({
-            type: "GET",
-            url: queryURL,
-            async: true,
-            dataType: "json",
-            error: function(xhr, status, err) {
-               
-            },
-        }).then(function(json) {
-            console.log(json)
-            var stockData = (json._embedded.market);
-     
-</script>
-</div>
