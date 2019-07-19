@@ -6,25 +6,6 @@ var axios = require("axios");
 module.exports = function(app) {
     // Load index page
 
-    // home route
-    // app.get("/", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/home.html"));
-    // });
-
-    // // transaction.html route
-    // app.get("/history", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/transaction.html"));
-    // });
-
-    // // input transaction route
-    // app.get("/new", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/input.html"));
-    // });
-
-    // app.get("*", function(req, res) {
-    //   res.render("404");
-    // });
-
     app.get("/", function(req, res) {
         var queryUrl = "https://financialmodelingprep.com/api/v3/stock/gainers";
         axios.get(queryUrl)
@@ -65,4 +46,5 @@ module.exports = function(app) {
     app.get("*", function(req, res) {
         res.render("404");
     });
+
 };
