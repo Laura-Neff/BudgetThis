@@ -26,12 +26,13 @@ module.exports = function(app) {
                         res.json(transactions);
                     });
                 })
-            } else
+            } else {
                 transactiondata.UserId = res1[0].id
-            console.log(transactiondata.UserId)
-            db.Transaction.create(transactiondata).then(function(transactions) {
-                res.json(transactions);
-            });
+                console.log(transactiondata.UserId)
+                db.Transaction.create(transactiondata).then(function(transactions) {
+                    res.json(transactions);
+                });
+            }
         })
 
     });

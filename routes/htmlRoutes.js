@@ -4,27 +4,6 @@ var axios = require("axios");
 // var path = require("path");
 
 module.exports = function(app) {
-    // Load index page
-
-    // home route
-    // app.get("/", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/home.html"));
-    // });
-
-    // // transaction.html route
-    // app.get("/history", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/transaction.html"));
-    // });
-
-    // // input transaction route
-    // app.get("/new", function(req, res) {
-    //   res.sendFile(path.join(__dirname, "../public/input.html"));
-    // });
-
-    // app.get("*", function(req, res) {
-    //   res.render("404");
-    // });
-
     app.get("/", function(req, res) {
         var queryUrl = "https://financialmodelingprep.com/api/v3/stock/gainers";
         axios.get(queryUrl)
@@ -48,10 +27,18 @@ module.exports = function(app) {
 
     // Load example page and pass in an example by id
     app.get("/transaction", function(req, res) {
-        res.render("transaction", {
-            msg: "Transaction history!"
-                // examples: dbExamples
-        });
+            res.render("transaction");
+        })
+        
+
+    app.get("/transactions", function(req, res) {
+    var instance = axios.create({ baseURL: 'http://localhost:3000' });
+    instance.get('/api/transactions', { timeout: 5000 });
+        axios.get("api/transactions")
+            .then(function(response){
+                console.log(response.data);
+                res.send(response.data);
+            })
     });
 
     app.get("/input", function(req, res) {

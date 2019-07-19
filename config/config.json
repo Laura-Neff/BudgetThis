@@ -2,22 +2,15 @@
 
     "development": {
         "username": "root",
-        "password": "",
+        "password": "pinkydoodle101",
         "database": "budgetdb",
         "host": "localhost",
         "dialect": "mysql",
-        "main": "transactionAPI.test.js"
-    },
-    "devDependencies": {
-        "chai": "^3.5.0",
-        "mocha": "^3.0.0"
-    },
-    "scripts": {
-        "test": "mocha"
-    },
+        "port": 3306
+    },  
     "test": {
         "username": "root",
-        "password": null,
+        "password": "pinkydoodle101",
         "database": "testdb",
         "host": "localhost",
         "dialect": "mysql",
