@@ -26,10 +26,24 @@ module.exports = function(app) {
     // });
 
     app.get("/", function(req, res) {
-        res.render("home", {
-            msg: "Welcome home!"
-                // examples: dbExamples
-        });
+        var queryUrl = "https://financialmodelingprep.com/api/v3/stock/gainers";
+        axios.get(queryUrl)
+            .then(function(response) {
+                // console.log(response);
+                for (i = 0; i < response.data.mostGainerStock.length; i++) {
+                    // response.data[i];
+                    console.log(response.data.mostGainerStock[i]);
+                }
+                var data = {
+                    stocks: response.data.mostGainerStock
+                }
+                res.render("home", data);
+            })
+            .catch(function(error) {
+                if (error.response) {
+                    console.log(error.response);
+                }
+            });
     });
 
     // Load example page and pass in an example by id
