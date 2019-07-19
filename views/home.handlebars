@@ -1,16 +1,136 @@
+<style>
+  header {
+    padding: 156px 0 100px;
+}
 
+section {
+    padding: 150px 0;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-home"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#stocks">Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<div class="center">
+    <header class="bg-primary text-white" id="page-top">
+        <div class="container text-center">
+            <h1>Budget This!</h1>
+            <span><a href="/transaction"><button class="btn btn-info">Past Transactions</button></a></span>
+            <span><a href="/input"><button class="btn btn-info">New Transaction</button></a></span>
+        </div>
+    </header>
 
-<ul>
-  {{#each data}}
-     <li>
-      <p>Ticker: {{ticker}}</p>
-      <p>Company Name: {{companyName}}</p>
-      <p>Price: {{price}}</p>
-      <p>Changes: {{changes}}</p>
-      <p>Percent Change: {{changesPercentage}}</p>
-    </li>
-  {{/each}}
-</ul>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>About this app</h2>
+                    <p class="lead">Blah Blah Blah This template features:</p>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="stocks" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 style="text-align: center;">Highest Gainers of the Day:</h1>
+                    <br>
+                    <div class="mx-auto">
+                     {{#each stocks}}
+                    <div data-aos="flip-left" class="card w-50 mx-auto">
+                      <div class="card-body">
+                        <h5 class="card-title"><p>Ticker: {{ticker}}</p>
+                        <p>Company Name: {{companyName}}</p></h5>
+                        <div class="card-text"> <p>Price: {{price}}</p>
+                        <p>Changes: {{changes}}</p>
+                        <p>Percent Change: {{changesPercentage}}</p></div>
+                      </div>
+                    </div>
+                    <br>
+                    {{/each}}
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Contact us</h2>
+                    <p class="lead">Random contact info</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; stuff 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+<script>
+(function($) {
+  "use strict"; // Start of use strict
+
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 56)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#mainNav',
+    offset: 56
+  });
+
+})(jQuery); // End of use strict
+
+</script>
