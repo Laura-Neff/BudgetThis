@@ -9,7 +9,7 @@ section {
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">retard icon here</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-home"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,7 +19,7 @@ section {
                         <a class="nav-link js-scroll-trigger" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="#stocks">Stocks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -29,11 +29,11 @@ section {
         </div>
     </nav>
 
-    <header class="bg-primary text-white">
+    <header class="bg-primary text-white" id="page-top">
         <div class="container text-center">
-            <h1>Budget App Thing</h1>
-            <span><a href=""><button class="btn btn-info">Past Transactions</button></a></span>
-            <span><a href=""><button class="btn btn-info" action="/input">New Transaction</button></a></span>
+            <h1>Budget This!</h1>
+            <span><a href="/transaction"><button class="btn btn-info">Past Transactions</button></a></span>
+            <span><a href="/input"><button class="btn btn-info">New Transaction</button></a></span>
         </div>
     </header>
 
@@ -57,11 +57,11 @@ section {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 style="text-align: center;">Current Stock Values:</h2>
+                    <h1 style="text-align: center;">Highest Gainers of the Day:</h1>
                     <br>
                     <div class="mx-auto">
                      {{#each stocks}}
-                    <div data-aos="fade" class="card w-50 mx-auto">
+                    <div data-aos="flip-left" class="card w-50 mx-auto">
                       <div class="card-body">
                         <h5 class="card-title"><p>Ticker: {{ticker}}</p>
                         <p>Company Name: {{companyName}}</p></h5>
@@ -103,5 +103,34 @@ section {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 <script>
+(function($) {
+  "use strict"; // Start of use strict
+
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 56)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#mainNav',
+    offset: 56
+  });
+
+})(jQuery); // End of use strict
 
 </script>
