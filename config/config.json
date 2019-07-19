@@ -2,7 +2,7 @@
 
     "development": {
         "username": "root",
-        "password": "Mellon93",
+        "password": "",
         "database": "budgetdb",
         "host": "localhost",
         "dialect": "mysql",
@@ -17,7 +17,7 @@
     },
     "test": {
         "username": "root",
-        "password": "Mellon93",
+        "password": "",
         "database": "testdb",
         "host": "localhost",
         "dialect": "mysql",
