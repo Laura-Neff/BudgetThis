@@ -29,10 +29,20 @@ module.exports = function(app) {
 
     // Load example page and pass in an example by id
     app.get("/transaction", function(req, res) {
-        res.render("transaction", {
-            msg: "Transaction history!"
-                // examples: dbExamples
-        });
+        db.Transaction.findAll({}).then(function(resp) {
+            var total = 7500
+            for (let i = 0; i < resp.length; i++) {
+                if (resp[i].type === 'Deposit')
+                    total += resp[i].amount;
+                else
+                    total -= resp[i].amount;
+            }
+            res.render("transaction", {
+                transactions: resp,
+                total: total
+            });
+        })
+
     });
 
     app.get("/input", function(req, res) {

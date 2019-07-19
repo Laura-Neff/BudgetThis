@@ -28,8 +28,12 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{#each transactions}}
+                  {{> transaction/transaction-block}}
+                  {{/each}}
                 </tbody>
               </table>
+              <h5>Remaining Budget: ${{total}}</h5>
             </div>
           </div>
   </div>
