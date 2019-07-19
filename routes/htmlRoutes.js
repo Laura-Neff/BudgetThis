@@ -66,7 +66,7 @@ axios
         var data = {
             stocks: response.data.mostGainerStock
         }
-        res.render("home", data);
+        response.render("home", data);
     })
     .catch(function(error) {
         if (error.response) {
