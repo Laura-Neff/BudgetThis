@@ -49,7 +49,7 @@ describe("GET /api/transactions", function() {
 
         for(i = 0; i < responseBody.length; i++) {
 
-          expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'createdAt', 'updatedAt', 'UserId');
+          expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
 
 
 
