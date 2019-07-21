@@ -1,8 +1,9 @@
-var chai = require("chai");
-var chaiHttp = require("chai-http");
-var server = require("../server");
-var db = require("../models");
-var expect = chai.expect;
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const server = require("../server");
+const db = require("../models");
+const expect = chai.expect;
+const should = require('chai').should();
 
 // Setting up the chai http plugin
 chai.use(chaiHttp);
@@ -15,16 +16,9 @@ describe("GET /api/transactions", function() {
   beforeEach(function() {
     request = chai.request(server);
 
-    // return db.sequelize.sync({ force: true });
-
-    // get rid of this after post statements start working
   });
 
-  it("should find all transactions", function(done) {
-    // Add some examples to the db to test with
-
-      // Remove the bulkCreate and promise statements after post methods start working
-      // only keep requests
+  it("should see if transactions exist", function(done) {
 
       // Request the route that returns all examples
       request.get("/api/transactions").end(function(err, res) {
@@ -37,21 +31,92 @@ describe("GET /api/transactions", function() {
 
         expect(responseStatus).to.equal(200);
 
-        expect(responseBody)
-          .to.be.an("array")
-          .that.has.lengthOf(2);
+        // Testing to see if there's anything in the response
 
-        expect(responseBody[0])
-          .to.be.an("object")
-          .that.includes({ text: "First transaction", description: "First Description" });
+        should.exist(responseBody);
 
-        expect(responseBody[1])
-          .to.be.an("object")
-          .that.includes({ text: "Second transaction", description: "Second Description" });
+        responseBody.should.be.an('array');
 
-        // The `done` function is used to end any asynchronous tests
-        done();
       });
+      done();
     });
+
+      it("should see if each response object exists", function(done) {
+
+        request.get("/api/transactions").end(function(err, res) {
+          var responseBody = res.body;
+        for(i = 0; i < responseBody.length; i++) {
+
+          should.exist(responseBody[i]);
+          responseBody[i].should.be.an('object');
+         
+
+        }
+      });
+      done();      
+    });
+
+      it("should see if each response object has the necessary keys", function(done) {
+
+      request.get("/api/transactions").end(function(err, res) {
+        var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+        expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
+      }
+    });
+    done();  
   });
+
+  it("should see if each response object has a type of payment and if it's a string", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+         // Testing for type of payment
+         var type = responseBody[i].type;
+
+         should.exist(type);
+
+         type.should.be.an('string');
+        
+      }
+    });
+    done();  
+  });
+
+  it("should see if each response object has a memo and if it's a string/text", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+         // Testing for memo
+         var memo = responseBody[i].memo;
+
+         memo.should.not.be.an('number');
+      }
+    });
+    done(); 
+  });
+         
+  it("should see if each response object has an amount and if it's a number", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+             // Testing for amount
+
+             var amount = responseBody[i].amount;
+
+             should.exist(amount);
+   
+             amount.should.be.an('number');
+      }
+    });
+    done();  
+  });
+
+
+        
+        // The `done` function is used to end any asynchronous tests
+      });
 

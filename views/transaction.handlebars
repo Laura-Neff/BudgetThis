@@ -25,6 +25,15 @@
                     <th>Transaction Type</th>
                     <th>Amount</th>
                     <th>Memo</th>
+                  
+                      {{#each transactions}}
+            
+                          <td>{{type}}</td>
+                          <td>{{amount}}</td>
+                          <td>{{memo}}</td>
+                  
+                        
+                      {{/each}}
                   </tr>
                 </thead>
                 <tbody>
@@ -36,6 +45,9 @@
               <h5>Remaining Budget: ${{total}}</h5>
             </div>
           </div>
+
+     
+
   </div>
 
   <div class="container blog">
