@@ -16,16 +16,9 @@ describe("GET /api/transactions", function() {
   beforeEach(function() {
     request = chai.request(server);
 
-    // return db.sequelize.sync({ force: true });
-
-    // get rid of this after post statements start working
   });
 
-  it("should find all transactions", function(done) {
-    // Add some examples to the db to test with
-
-      // Remove the bulkCreate and promise statements after post methods start working
-      // only keep requests
+  it("should see if transactions exist", function(done) {
 
       // Request the route that returns all examples
       request.get("/api/transactions").end(function(err, res) {
@@ -36,7 +29,7 @@ describe("GET /api/transactions", function() {
 
         expect(err).to.be.null;
 
-        // expect(responseStatus).to.equal(200);
+        expect(responseStatus).to.equal(200);
 
         // Testing to see if there's anything in the response
 
@@ -44,13 +37,12 @@ describe("GET /api/transactions", function() {
 
         responseBody.should.be.an('array');
 
-        
+      }
+
 
         for(i = 0; i < responseBody.length; i++) {
 
           expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
-
-         
 
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
@@ -80,19 +72,6 @@ describe("GET /api/transactions", function() {
         }
 
         
-
-        // expect(responseBody)
-        //   .to.be.an("array")
-        //   .that.has.lengthOf(2);
-
-        // expect(responseBody[0])
-        //   .to.be.an("object")
-        //   .that.includes({ text: "First transaction", description: "First Description" });
-
-        // expect(responseBody[1])
-        //   .to.be.an("object")
-        //   .that.includes({ text: "Second transaction", description: "Second Description" });
-
         // The `done` function is used to end any asynchronous tests
         done();
       });
