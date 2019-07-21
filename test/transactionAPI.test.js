@@ -38,23 +38,36 @@ describe("GET /api/transactions", function() {
 
         // expect(responseStatus).to.equal(200);
 
+        // Testing to see if there's anything in the response
+
         should.exist(responseBody);
 
         for(i = 0; i < responseBody.length; i++) {
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
 
+          // Testing for type of payment
           var type = responseBody[i].type;
+
+          should.exist(type);
 
           type.should.be.an('string');
 
+          // Testing for memo
           var memo = responseBody[i].memo;
+
+          should.exist(memo);
 
           memo.should.not.be.an('number');
 
+          // Testing for amount
+
           var amount = responseBody[i].amount;
 
+          should.exist(amount);
+
           amount.should.be.an('number');
+
 
 
         }
