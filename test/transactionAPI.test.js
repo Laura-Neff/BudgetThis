@@ -1,9 +1,9 @@
-var chai = require("chai");
-var chaiHttp = require("chai-http");
-var server = require("../server");
-var db = require("../models");
-var expect = chai.expect;
-var should = require('chai').should();
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const server = require("../server");
+const db = require("../models");
+const expect = chai.expect;
+const should = require('chai').should();
 
 // Setting up the chai http plugin
 chai.use(chaiHttp);
@@ -44,14 +44,13 @@ describe("GET /api/transactions", function() {
 
         responseBody.should.be.an('array');
 
-
-        // expect(responseBody).to.be.instanceOf(db.Transaction);
+        
 
         for(i = 0; i < responseBody.length; i++) {
 
           expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
 
-
+         
 
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
@@ -75,8 +74,6 @@ describe("GET /api/transactions", function() {
           should.exist(amount);
 
           amount.should.be.an('number');
-
-          // expect(responseBody[i]).to.be.instanceOf(db.Transaction);
 
 
 
