@@ -29,20 +29,21 @@ module.exports = function(app) {
 
     // Load example page and pass in an example by id
     app.get("/transaction", function(req, res) {
-
-            res.render("transaction");
+        db.Transaction.findAll({}).then(function(resp) {
+            var total = 7500
+            for (let i = 0; i < resp.length; i++) {
+                if (resp[i].type === 'Deposit')
+                    total += resp[i].amount;
+                else
+                    total -= resp[i].amount;
+            }
+            res.render("transaction", {
+                transactions: resp,
+                total: total
+            });
         })
-        
 
-    // app.get("/transactions", function(req, res) {
-    // var instance = axios.create({ baseURL: 'http://localhost:3000' });
-    // instance.get('/api/transactions', { timeout: 5000 });
-    //     axios.get("api/transactions")
-    //         .then(function(response){
-    //             console.log(response.data);
-    //             res.send(response.data);
-    //         })
-    // });
+    });
 
     app.get("/input", function(req, res) {
         res.render("input", {
