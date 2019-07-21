@@ -4,6 +4,8 @@ var axios = require("axios");
 // var path = require("path");
 
 module.exports = function(app) {
+    // Load index page
+
     app.get("/", function(req, res) {
         var queryUrl = "https://financialmodelingprep.com/api/v3/stock/gainers";
         axios.get(queryUrl)
@@ -27,19 +29,20 @@ module.exports = function(app) {
 
     // Load example page and pass in an example by id
     app.get("/transaction", function(req, res) {
+
             res.render("transaction");
         })
         
 
-    app.get("/transactions", function(req, res) {
-    var instance = axios.create({ baseURL: 'http://localhost:3000' });
-    instance.get('/api/transactions', { timeout: 5000 });
-        axios.get("api/transactions")
-            .then(function(response){
-                console.log(response.data);
-                res.send(response.data);
-            })
-    });
+    // app.get("/transactions", function(req, res) {
+    // var instance = axios.create({ baseURL: 'http://localhost:3000' });
+    // instance.get('/api/transactions', { timeout: 5000 });
+    //     axios.get("api/transactions")
+    //         .then(function(response){
+    //             console.log(response.data);
+    //             res.send(response.data);
+    //         })
+    // });
 
     app.get("/input", function(req, res) {
         res.render("input", {
@@ -52,4 +55,5 @@ module.exports = function(app) {
     app.get("*", function(req, res) {
         res.render("404");
     });
+
 };
