@@ -38,6 +38,16 @@ describe("GET /api/transactions", function() {
 
         // expect(responseStatus).to.equal(200);
 
+        should.exist(responseBody);
+
+        for(i = 0; i < responseBody.length; i++) {
+          should.exist(responseBody[i]);
+          responseBody[i].should.be.an('object');
+
+        }
+
+        
+
         // expect(responseBody)
         //   .to.be.an("array")
         //   .that.has.lengthOf(2);
