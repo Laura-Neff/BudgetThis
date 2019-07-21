@@ -44,6 +44,10 @@ describe("GET /api/transactions", function() {
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
 
+          var type = responseBody[i].type;
+
+          type.should.be.an('string');
+
         }
 
         
