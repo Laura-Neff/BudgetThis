@@ -42,6 +42,10 @@ describe("GET /api/transactions", function() {
 
         should.exist(responseBody);
 
+        responseBody.should.be.an('array');
+
+        // expect(responseBody).to.be.instanceOf(db.Transaction);
+
         for(i = 0; i < responseBody.length; i++) {
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
@@ -56,7 +60,6 @@ describe("GET /api/transactions", function() {
           // Testing for memo
           var memo = responseBody[i].memo;
 
-
           memo.should.not.be.an('number');
 
           // Testing for amount
@@ -64,8 +67,10 @@ describe("GET /api/transactions", function() {
           var amount = responseBody[i].amount;
 
           should.exist(amount);
-          
+
           amount.should.be.an('number');
+
+          // expect(responseBody[i]).to.be.instanceOf(db.Transaction);
 
 
 
