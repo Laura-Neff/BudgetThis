@@ -52,6 +52,10 @@ describe("GET /api/transactions", function() {
 
           memo.should.not.be.an('number');
 
+          var amount = responseBody[i].amount;
+
+          amount.should.be.an('number');
+
 
         }
 
