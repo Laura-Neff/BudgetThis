@@ -1,12 +1,15 @@
-
-    <!-- <div class="row">
-      <div class="col-md-12 blog-container">
-      </div>
-    </div> -->
+  <div class="bar">
+  <nav class="navbar navbar-dark bg-primary">
+    <h1 class="nh1">Budget This!</h1>
+  <a class="navbar-brand" href="/">Home</a>
+  <a class="navbar-brand" href="/transaction">Transaction History</a>
+  <a class="navbar-brand" href="/input">Input Financial Data</a>
+</nav>
+  </div>
 
     <div class="container">
       <!-- Jumbotron -->
-      <div class="jumbotron" style="background-color: #7F462C; color: white">
+      <div class="jumbotron" style="background-color: rgb(112, 112, 112) ; color: white">
         <h1 class="text-center">Transaction History</h1>
       </div>
       <div class="row">
@@ -34,8 +37,12 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{#each transactions}}
+                  {{> transaction/transaction-block}}
+                  {{/each}}
                 </tbody>
               </table>
+              <h5>Remaining Budget: ${{total}}</h5>
             </div>
           </div>
 
