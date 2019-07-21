@@ -44,9 +44,15 @@ describe("GET /api/transactions", function() {
 
         responseBody.should.be.an('array');
 
+
         // expect(responseBody).to.be.instanceOf(db.Transaction);
 
         for(i = 0; i < responseBody.length; i++) {
+
+          expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'createdAt', 'updatedAt', 'UserId');
+
+
+
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
 
