@@ -37,44 +37,86 @@ describe("GET /api/transactions", function() {
 
         responseBody.should.be.an('array');
 
-      }
+      });
+      done();
+    });
 
+      it("should see if each response object exists", function(done) {
 
+        request.get("/api/transactions").end(function(err, res) {
+          var responseBody = res.body;
         for(i = 0; i < responseBody.length; i++) {
-
-          expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
 
           should.exist(responseBody[i]);
           responseBody[i].should.be.an('object');
-
-          // Testing for type of payment
-          var type = responseBody[i].type;
-
-          should.exist(type);
-
-          type.should.be.an('string');
-
-          // Testing for memo
-          var memo = responseBody[i].memo;
-
-          memo.should.not.be.an('number');
-
-          // Testing for amount
-
-          var amount = responseBody[i].amount;
-
-          should.exist(amount);
-
-          amount.should.be.an('number');
-
-
+         
 
         }
+      });
+      done();      
+    });
+
+      it("should see if each response object has the necessary keys", function(done) {
+
+      request.get("/api/transactions").end(function(err, res) {
+        var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+        expect(responseBody[i]).to.contain.keys('id', 'type', 'memo', 'amount', 'UserId');
+      }
+    });
+    done();  
+  });
+
+  it("should see if each response object has a type of payment and if it's a string", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+         // Testing for type of payment
+         var type = responseBody[i].type;
+
+         should.exist(type);
+
+         type.should.be.an('string');
+        
+      }
+    });
+    done();  
+  });
+
+  it("should see if each response object has a memo and if it's a string/text", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+         // Testing for memo
+         var memo = responseBody[i].memo;
+
+         memo.should.not.be.an('number');
+      }
+    });
+    done(); 
+  });
+         
+  it("should see if each response object has an amount and if it's a number", function(done) {
+
+    request.get("/api/transactions").end(function(err, res) {
+      var responseBody = res.body;
+      for(i = 0; i < responseBody.length; i++) {
+             // Testing for amount
+
+             var amount = responseBody[i].amount;
+
+             should.exist(amount);
+   
+             amount.should.be.an('number');
+      }
+    });
+    done();  
+  });
+
 
         
         // The `done` function is used to end any asynchronous tests
-        done();
       });
-    });
-  });
 
