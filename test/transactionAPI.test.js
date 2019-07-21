@@ -56,7 +56,6 @@ describe("GET /api/transactions", function() {
           // Testing for memo
           var memo = responseBody[i].memo;
 
-          should.exist(memo);
 
           memo.should.not.be.an('number');
 
@@ -65,7 +64,7 @@ describe("GET /api/transactions", function() {
           var amount = responseBody[i].amount;
 
           should.exist(amount);
-
+          
           amount.should.be.an('number');
 
 
