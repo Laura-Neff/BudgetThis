@@ -7,7 +7,7 @@ DEVELOPERS: LAURA NEFF, ALEX STEINBERG, HARRISON NGAN
 
 <img src="pics/main.png" width="350">
 
-Info: A bugeting app that helps users log their expenses and income to help organize their budget, learn about new investment opportunities, and to
+Info: A budgeting app that helps users log their expenses and income to help organize their budget, learn about new investment opportunities, and to
 learn to spend money better and how much they spend per month on average. 
 
 
