@@ -47,7 +47,9 @@ module.exports = function(app) {
                             break;
                         case 'Credit Payment':credit+=resp[i].amount;
                             break;
-                        default: stock+=resp[i].amount;
+                        default: 
+                        if(resp[i].type!="Deposit")
+                        stock+=resp[i].amount;
                         break;
                         }
                 }
