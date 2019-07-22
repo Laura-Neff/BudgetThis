@@ -10,7 +10,10 @@ Technologies Used: Chai and Mocha for testing, Financial Modeling Prep API, Anim
 
 
 <img src="pics/main.png" width="350">
+<br>
 <img src="pics/input.png" width="350">
+<br>
 <img src="pics/transactions.png" width="350">
+<br>
 <img src="pics/pie.png" width="350">
 
