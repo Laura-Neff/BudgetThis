@@ -1,9 +1,8 @@
   <div class="bar">
   <nav class="navbar navbar-dark bg-primary">
-    <h1 class="nh1">Budget This!</h1>
-  <a class="navbar-brand" href="/">Home</a>
-  <a class="navbar-brand" href="/transaction">Transaction History</a>
-  <a class="navbar-brand" href="/input">Input Financial Data</a>
+    <a href="/"><h1 class="nh1">Budget This!</h1></a>
+ 
+   <a class="navbar-brand" href="/transaction">Transaction History</a>
 </nav>
 
   </div>
@@ -22,6 +21,7 @@
                 <option>Withdrawal</option>
                 <option>Credit Payment</option>
                 <option>Cash Payment</option>
+                <option>Stock Investment</option>
             </select>
         </div>
 
@@ -31,9 +31,11 @@
         </div>
         <div class="form-group">
             <label for="memo">Description:</label>
-            <input type="text" class="form-control" id="memo" placeholder="Transaction Memo">
+            <input type="text" class="form-control" id="memo" placeholder="Transaction Memo"> 
         </div>
+        <button class="btn btn-danger" id="transaction-form-fill">Scan Receipt</button>
           <button type="submit" class="btn btn-success" id="transaction-form" data-toggle="modal" data-target="#exampleModal">Create Transaction</button>
+          
     </form>
   </div>
     
@@ -57,7 +59,7 @@
     </div>
   </div>
 </div>
-    
+
 <script>
     $(document).ready(function() {
 
