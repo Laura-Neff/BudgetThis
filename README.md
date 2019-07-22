@@ -1,6 +1,8 @@
 # Project2
 Group Project 2
 
+Deployed Heroku Link: http://budgetapp-1932.herokuapp.com/
+
 DEVELOPERS: LAURA NEFF, ALEX STEINBERG, HARRISON NGAN
 
 <img src="pics/main.png" width="350">
