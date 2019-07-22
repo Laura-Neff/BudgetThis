@@ -31,15 +31,33 @@ module.exports = function(app) {
     app.get("/transaction", function(req, res) {
         db.Transaction.findAll({}).then(function(resp) {
             var total = 7500
+            var cash=0;
+            var credit=0;
+            var wit =0 ;
+            var stock=0;
             for (let i = 0; i < resp.length; i++) {
                 if (resp[i].type === 'Deposit')
                     total += resp[i].amount;
                 else
                     total -= resp[i].amount;
-            }
+                    switch(resp[i].type){
+                        case 'Withdrawl':wit+=resp[i].amount;
+                                            break;
+                        case 'Cash Payment':cash+=resp[i].amount;
+                            break;
+                        case 'Credit Payment':credit+=resp[i].amount;
+                            break;
+                        default: stock+=resp[i].amount;
+                        break;
+                        }
+                }
             res.render("transaction", {
                 transactions: resp,
-                total: total
+                total: total,
+                cash:cash,
+                credit:credit,
+                wit: wit,
+                stock: stock,
             });
         })
 

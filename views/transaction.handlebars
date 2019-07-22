@@ -1,8 +1,6 @@
   <div class="bar">
   <nav class="navbar navbar-dark bg-primary">
-    <h1 class="nh1">Budget This!</h1>
-  <a class="navbar-brand" href="/">Home</a>
-  <a class="navbar-brand" href="/transaction">Transaction History</a>
+    <a href="/"><h1 class="nh1">Budget This!</h1></a>
   <a class="navbar-brand" href="/input">Input Financial Data</a>
 </nav>
   </div>
@@ -11,6 +9,9 @@
       <!-- Jumbotron -->
       <div class="jumbotron" style="background-color: rgb(112, 112, 112) ; color: white">
         <h1 class="text-center">Transaction History</h1>
+      </div>
+      <div>
+        <canvas id="pieChart"></canvas>
       </div>
       <div class="row">
         <div class="col-lg-12"> 
@@ -25,15 +26,6 @@
                     <th>Transaction Type</th>
                     <th>Amount</th>
                     <th>Memo</th>
-                  
-                      {{#each transactions}}
-            
-                          <td>{{type}}</td>
-                          <td>{{amount}}</td>
-                          <td>{{memo}}</td>
-                  
-                        
-                      {{/each}}
                   </tr>
                 </thead>
                 <tbody>
@@ -42,7 +34,7 @@
                   {{/each}}
                 </tbody>
               </table>
-              <h5>Remaining Budget: ${{total}}</h5>
+              <h5>Remaining Budget: $<span id="total">{{total}}</span></h5>
             </div>
           </div>
 
@@ -55,11 +47,37 @@
       <div class="col-md-2 col-sm-2">
         <a class="btn btn-light" href="/input">New Transaction</a>
       </div>
-      <!-- <div class="col-md-2 col-sm-2">
 
-    <div class="container blog">
-        <div class="row">
-            <div class="col-md-2 col-sm-2">
-                <a class="btn btn-light" href="/cms">New Transaction</a>
-            </div>
-            <!-- <div class="col-md-2 col-sm-2">
+<div style="display: none">
+  <span id="credit">{{credit}}</span>
+  <span id="cash">{{cash}}</span>
+  <span id="with">{{wit}}</span>
+  <span id="stock">{{stock}}</span>
+</div>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/js/mdb.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+var ctxP = document.getElementById("pieChart").getContext('2d');
+var myPieChart = new Chart(ctxP, {
+  type: 'pie',
+  data: {
+    labels: ["Credit Payments", "Cash Payments", "Stock Investments", "Withdrawl", "Available"],
+    datasets: [{
+      data: [parseFloat($("#credit").text()),parseFloat($("#cash").text()),parseFloat($("#stock").text()),parseFloat($("#with").text()),parseFloat($("#total").text())],
+      backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "blue","#949FB1"],
+      hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "skyblue","#A8B3C5"]
+    }]
+  },
+  options: {
+    responsive: true
+  }
+});
+
+})
+</script>
