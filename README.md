@@ -1,5 +1,5 @@
-# Project2
-Group Project 2
+# Budget This!
+
 
 Deployed Heroku Link: http://budgetapp-1932.herokuapp.com/
 
