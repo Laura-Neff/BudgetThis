@@ -41,7 +41,7 @@ module.exports = function(app) {
                 else
                     total -= resp[i].amount;
                     switch(resp[i].type){
-                        case 'Withdrawl':wit+=resp[i].amount;
+                        case 'Withdrawal':wit+=resp[i].amount;
                                             break;
                         case 'Cash Payment':cash+=resp[i].amount;
                             break;
