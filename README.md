@@ -13,7 +13,7 @@ learn to spend money better and how much they spend per month on average.
 
 <img src="pics/input.png" width="350">
 
-Technologies Used: Chai and Mocha for testing, Financial Modeling Prep API, Animation AOS Library, MySQL, Sequelize, Express, Bootstrap, Handlebars, etc.
+Technologies Used: Chai and Mocha for testing, Financial Modeling Prep API, Express.js, Axios, Node, Animation AOS Library, MySQL, Sequelize, Express, Bootstrap, Handlebars, etc.
 
 <img src="pics/transactions.png" width="350">
 
